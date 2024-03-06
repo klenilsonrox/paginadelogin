@@ -13,7 +13,7 @@ interface ErrorResponse {
 }
 
 const loginPage = () => {
- const [erro, setErro] = React.useState<ErrorResponse | null>(null);
+ const [erro, setErro] = React.useState("");
   const [sucess, setSucess] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -21,7 +21,7 @@ const loginPage = () => {
 
   function removeError() {
     setInterval(() => {
-      setErro(null);
+      setErro("");
     }, 3000);
   }
 
@@ -41,8 +41,8 @@ const loginPage = () => {
       })
       
       removeError();
-    } catch (error) {
-      setErro(error.response?.data.message || "Erro desconhecido");
+    } catch (error:any) {
+      setErro("usuario ja cadastrado");
       removeError();
     } finally {
       // Este bloco será executado independentemente de sucesso ou falha
@@ -78,7 +78,7 @@ const loginPage = () => {
             Aguarde...
         </button>}
         {sucess && <p className="text-green-600 font-semibold">{sucess}</p> }
-        {erro && <p className="text-red-600 font-semibold">{erro}</p> }
+      
         <div className="max-w-md border-b border-gray-600 my-4"></div>
 
         <Link
