@@ -18,3 +18,23 @@ body{
         transform: translate3d(0,0,0);
     }
 }
+
+.animaMenu{
+    animation: animeMenu .3s linear;
+}
+
+@keyframes animeMenu {
+    from{
+       
+        overflow-y: hidden;
+        visibility: hidden;
+        height: 0vh;
+    } to{
+        from{
+         
+            overflow-y: auto;
+            visibility: visible;
+            height: 100vh;
+        }
+    }
+}
