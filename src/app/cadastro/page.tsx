@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 const page = () => {
 const [username,setUsername]=React.useState("")
-const [erro, setErro] = React.useState<ErrorResponse | null>(null);
+const [erro, setErro] = React.useState("");
 const [email,setEmail]=React.useState("")
 const [sucess, setSucess] = React.useState("");
 const [password,setPassword]=React.useState("")
@@ -16,7 +16,7 @@ const [cadastrando,setCadastrando]=React.useState(false)
 
 function removeError() {
     setInterval(() => {
-      setErro(null);
+      setErro("");
     }, 1000);
   }
 
@@ -37,7 +37,7 @@ async function handleCadastro(e: any) {
       removeError()
   
     } catch (error) {
-      setErro(error.response?.data.message || "Erro desconhecido");
+      setErro( "usuario cadastrado");
       setCadastrando(false)
       removeError();
     } finally {
